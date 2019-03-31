@@ -1,0 +1,108 @@
+body{
+    height: 100%;
+    margin-left: 32px;
+    margin-right: 32px;
+    background-image: url("images/diana.png");
+    background-size: cover;
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+h1{
+    padding: 8px;
+    font-size: 32px;
+}
+
+.navigation-bar{
+    background-color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation-bar a{
+    flex-grow: 1 1 0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+}
+
+.navigation-bar  h1{
+    text-align: left;
+    flex: 3 3 0;
+    padding: 8px;
+    font-size: 32px;
+}
+
+.navigation-bar a:hover{
+    color: #4a5682;
+}
+
+span{
+    background-color: white;
+    padding: 8px;
+}
+
+h2{
+    margin-top: 72px;
+    margin-left: 32px;
+    margin-bottom: 16px;
+    font-size: 26px;
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+.restaurants{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: white;
+}
+
+img{
+    flex: 1 1 auto;
+    width: 175px;
+    height: 125px;
+    margin: auto;
+}
+
+h3{
+    font-size: 26px;
+    margin-left: 32px;
+    margin-top: 72px;
+    margin-bottom: 16px;
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+.todays-menu{
+    background-color: white;
+    padding: 8px;
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+.todays-menu p{
+    font-size: 18px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.wrapper {
+    text-align: center;
+    margin-top: 72px;
+    margin-bottom: 16px;
+}
+
+.magic-button{
+    text-decoration: none;
+    font-size: 26px;
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+    background-color: white;
+    padding: 12px;
+    color: black;
+}
+
+.magic-button:hover{
+    background-color: #717b8c;
+}

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    image: razvancir96/mysql01:firsttry
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bd2
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/eat-today-bucharest
+    ports:
+      - "8000:8000"
+    links:
+      - db
+    depends_on:
+      - migration
+  migration:
+    build: .
+    command: python manage.py migrate
+    volumes:
+      - .:/eat-today-bucharest
+    links:
+      - db
+    depends_on:
+      - db
+
+  

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load my_filters %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/todays_menu.css' %}">
+</head>
+<body>
+    <!-- navigation bar -->
+    <div class="navigation-bar">
+            <a href="{% url 'restaurants:index'%}"><h1>Eat today! - Bucharest</h1></a>
+            <a href="{% url 'restaurants:restaurants' %}">Restaurante</a>
+            <a href="{% url 'restaurants:todays_menus' %}">Meniurile zilei</a>
+    </div>
+    <!-- if the list of menus is empty, we show an error message -->
+    {% if not todays_menus %}
+        <div class="wrapper">
+            <h1>Ne pare rau, cautarea dvs. nu a gasit niciun rezutatat...</h1>
+            <p>Va sfatuim sa ajustati campurile si sa mai incercati o data! </p>
+            <a class="magic-button" href="{% url 'restaurants:search_form'%}">Cauta meniul zilei ideal!</a>
+        </div>
+    {% else %}
+    <div class="wrapper">
+        <h1>Meniurile zilei:</h1>
+    </div>
+
+    <div class="big-container">
+    {% for todays_menu in todays_menus %}
+        <div class="todays_menu">
+        <!-- had to join with restaurants -->
+        {% for restaurant in restaurant_info %}
+            {% if restaurant.id == todays_menu.id_restaurant.id%}
+                <div class="restaurant-presentation">
+                    <a href="{% url 'restaurants:restaurant_details' restaurant.id%}"><img src="{{ restaurant.logo }}"></a>
+                    <h2> {{ restaurant.rname }} </h2>
+                </div>
+            {% endif%}
+        {% endfor %}
+        <h3>Meniul zilei:</h3>
+        {% if todays_menu.deadline %}
+            <p>Valabil pana la: {{ todays_menu.deadline|date:"d M" }}</p>
+        {% else %}
+            Meniul este valabil doar astazi.
+        {% endif %}
+        <h4>Interval orar: {{todays_menu.start_hour| time:"H:i"}} - {{todays_menu.end_hour| time:"H:i"}}</h4>
+        {% if todays_menu.soup %}
+            <h5>Supa/Ciorba:</h5>
+            <p>{{ todays_menu.soup }}</p>
+        {% endif %}
+        <h5>Fel Principal</h5>
+            {% if todays_menu.side %}
+                <p>{{ todays_menu.main_course }} cu {{ todays_menu.side|lower}}</p>
+            {% else %}
+                <p>{{ todays_menu.main_course }}</p>
+            {% endif%}
+        {% if todays_menu.dessert %}
+            <h5>Desert</h5>
+            <p>{{ todays_menu.dessert}}<p>
+        {% endif %}
+        {% if todays_menu.drink %}
+            <h5>Bautura</h5>
+            <p>{{ todays_menu.drink }}</p>
+        {% endif %}
+        <h4>Pret: {{ todays_menu.price }}</h4>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="wrapper">
+        <a class="magic-button" href="{% url 'restaurants:search_form'%}">Cauta meniul zilei ideal!</a>
+    </div>
+    {% endif %}
+</body>
+</html>

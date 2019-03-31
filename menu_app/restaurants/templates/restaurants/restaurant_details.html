@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- path to static files -->
+    {% load staticfiles %}
+    <!-- load particular css file; static is path to static files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/restaurant_details.css'%}">
+</head>
+<body>
+    <div class="navigation-bar">
+            <a href="{% url 'restaurants:index'%}"><h1>Eat today! - Bucharest</h1></a>
+            <a href="{% url 'restaurants:restaurants' %}">Restaurante</a>
+            <a href="{% url 'restaurants:todays_menus' %}">Meniurile zilei</a>
+    </div>
+    <!-- our only restaurant -->
+    {% for restaurant_line in results %}
+        <div class="presentation">
+            <img src="{{restaurant_line.logo}}">
+            <h1>{{ restaurant_line.rname }} - Meniu:</h1>
+        </div>
+
+        {% if starter_results %}
+            <h2>Aperitive</h2>
+            <div class="flex-container">
+            {% for product in starter_results %}
+                    <div class="flex-item">
+                        <p>{{product.pname}} ({{product.quantity}}g)</p>
+                        <p>{{product.price}}LEI</p>
+                    </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if soup_results %}
+            <h2>Supe/Ciorbe</h2>
+            <div class="flex-container">
+                {% for product in soup_results %}
+                    <div class="flex-item">
+                        <p>{{product.pname}} ({{product.quantity}}ml)</p>
+                        <p>{{product.price}}LEI</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <h2>Fel principal</h2>
+        <div class="flex-container">
+        {% for product in product_results %}
+            {% if product.category == 'Fel principal' %}
+                <div class="flex-item">
+                    <p>{{product.pname}} ({{product.quantity}}g)</p>
+                    <p>{{product.price}}LEI</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+        <h2>Garnitura</h2>
+        <div class="flex-container">
+        {% for product in product_results %}
+            {% if product.category == 'Garnitura' %}
+                <div class="flex-item">
+                    <p>{{product.pname}} ({{product.quantity}}g)</p>
+                    <p>{{product.price}}LEI</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+        <h2>Salata</h2>
+        <div class="flex-container">
+        {% for product in product_results %}
+            {% if product.category == 'Salata' %}
+                <div class="flex-item">
+                    <p>{{product.pname}} ({{product.quantity}}g)</p>
+                    <p>{{product.price}}LEI</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+        <h2>Bautura</h2>
+        <div class="flex-container">
+        {% for product in product_results %}
+            {% if product.category == 'Bautura' %}
+                <div class="flex-item">
+                    <p>{{product.pname}} ({{product.quantity}}g)</p>
+                    <p>{{product.price}}LEI</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+        <div class="wrapper">
+            <a class="magic-button" href="{% url 'restaurants:staff_details' restaurant_line.id %}">Cunoaste staff-ul!</a>
+        </div>
+
+        <h2><em>Contact</em></h2>
+        <footer class="flex-container">
+            <p>{{restaurant_line.address}}</p>
+            <p>{{restaurant_line.phone}}</p>
+            <p>{{restaurant_line.email}}</p>
+        </footer>
+    {% endfor %}
+</body>
+</html>

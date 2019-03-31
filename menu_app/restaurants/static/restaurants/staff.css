@@ -1,0 +1,82 @@
+body{
+
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+.navigation-bar{
+    background-color: #e6e9ef;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation-bar a{
+    flex-grow: 1 1 0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+
+}
+
+.navigation-bar  h1{
+    text-align: left;
+    flex: 3 3 0;
+    padding: 8px;
+    font-size: 32px;
+
+}
+
+.navigation-bar a:hover{
+    color: #4a5682;
+}
+
+.wrapper h1{
+    margin-top: 24px;
+    margin-bottom: 56px;
+}
+
+.wrapper{
+    text-align: center;
+}
+
+.abi{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.abi img{
+    width: 50%;
+}
+
+.abi h2{
+    font-size: 48px;
+    margin-bottom: 0px;
+}
+
+.abi h3{
+    font-size: 36px;
+}
+
+.notabi-container{
+    display: flex;
+    flex-flow: line wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.notabi{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.notabi h2{
+    margin-bottom: 0px;
+}

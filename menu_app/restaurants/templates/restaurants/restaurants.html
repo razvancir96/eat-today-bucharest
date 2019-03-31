@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/restaurants.css'%}">
+</head>
+<body>
+    <div class="navigation-bar">
+            <a href="{% url 'restaurants:index'%}"><h1>Eat today! - Bucharest</h1></a>
+            <a href="{% url 'restaurants:restaurants' %}">Restaurante</a>
+            <a href="{% url 'restaurants:todays_menus' %}">Meniurile zilei</a>
+    </div>
+    <div class="wrapper">
+        <h1>Restaurante:</h1>
+    </div>
+    <div class="flex-container">
+        {% for result in results %}
+        <div class="flex-item">
+            <a href="{% url 'restaurants:restaurant_details' result.id %}"><img src="{{ result.logo }}"></a>
+            <h2>{{ result.rname }}</h2>
+            <h3>{{ result.address }}</h3>
+            <h3>{{ result.phone }}</h3>
+            {% if result.email %}
+                <h3>{{ result.email }}</h3>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

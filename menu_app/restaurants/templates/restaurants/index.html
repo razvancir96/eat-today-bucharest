@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+    <!-- path to static files -->
+    {% load staticfiles %}
+    <!-- load particular css file; static is path to static files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/style.css'%}">
+</head>
+<body>
+    <header>
+        <div class="navigation-bar">
+            <a href="{% url 'restaurants:index'%}"><h1>Eat today! - Bucharest</h1></a>
+            <a href="{% url 'restaurants:restaurants' %}">Restaurante</a>
+            <a href="{% url 'restaurants:todays_menus' %}">Meniurile zilei</a>
+        </div>
+        <h2><span>Restaurante:</span></h2>
+        <div class="restaurants">
+            {% for line in results%}
+            <a href="{% url 'restaurants:restaurant_details' line.id %}"> <img src="{{ line.logo }}"> </a>
+            {% endfor %}
+        </div>
+        <h3><span>Tu ce mananci astazi la pranz?</span></h3>
+        <div class="todays-menu">
+            <p>Te-ai saturat de sandvisuri sau preparate nesanatoase, dar vrei sa economisesti bani? Pe Eat Today! te ajutam sa gasesti cele mai ieftine variante de a manca la restaurant!</p><br>
+            <p>Seteaza-ti limita de pret, precizeaza intre ce ore doresti sa mananci, dar si multe altele! Vrei si supa si fel principal, in limita de 20 de lei? Vrei neaparat un snitel de pui? Foloseste butonul de cautare de mai jos si cauta cat de complex doresti!</p><br>
+            <p>Pofta buna!</p>
+        </div>
+        <div class="wrapper">
+            <a class="magic-button" href="{% url 'restaurants:search_form'%}">Cauta meniul zilei ideal!</a>
+        </div>
+
+
+    </header>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/staff.css'%}">
+</head>
+<body>
+    <div class="navigation-bar">
+            <a href="{% url 'restaurants:index'%}"><h1>Eat today! - Bucharest</h1></a>
+            <a href="{% url 'restaurants:restaurants' %}">Restaurante</a>
+            <a href="{% url 'restaurants:todays_menus' %}">Meniurile zilei</a>
+    </div>
+
+    <div class="wrapper">
+        <h1>Angajatii nostri:</h1>
+    </div>
+
+    {% for employee in employees %}
+        {% if employee.ename == 'abi' %}
+        <div class="abi">
+            <img src="{{ employee.photo }}">
+            <h2>{{ employee.ename }} {{employee.esurname}}</h2>
+            <h3>Rol: {{ employee.job }}</h3>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="notabi-container">
+    {% for employee in employees %}
+        {% if employee.ename != 'abi' %}
+        <div class="notabi">
+            <img src="{{ employee.photo }}">
+            <h2>{{ employee.ename }} {{employee.esurname}}</h2>
+            <h3>Rol: {{ employee.job }}</h3>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/magic_form.css' %}">
+</head>
+<body>
+    <div class="navigation-bar">
+            <a href="{% url 'restaurants:index'%}"><h1>Eat today! - Bucharest</h1></a>
+            <a href="{% url 'restaurants:restaurants' %}">Restaurante</a>
+            <a href="{% url 'restaurants:todays_menus' %}">Meniurile zilei</a>
+    </div>
+    <div class="before-form">
+        <h1>Meniul dvs. ideal, la un click distanta!</h1>
+        <h2>Completati DOAR campurile care va intereseaza!</h2>
+        <p>Exemplu: Doriti ca meniul dvs. sa contina supa, iar la felul principal sa aiba pui?</p>
+        <p>Bifati casuta din dreptul intrebarii "Doriti ca meniul dvs. sa contina supa", iar sub campul numit "Felul principal" scrieti: "pui". </p>
+        <h2>Dupa completarea campurilor de interes, apasati pe "Submit".</h2>
+    </div>
+    <div class="wrapper">
+        <form action="{% url 'restaurants:filtered_tm' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {{ field.label }}<br>
+                {{ field }}<br>
+            {% endfor %}
+            <button class="magic-button" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

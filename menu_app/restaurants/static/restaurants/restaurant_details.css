@@ -1,0 +1,84 @@
+body{
+
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+.navigation-bar{
+    background-color: #e6e9ef;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation-bar a{
+    flex-grow: 1 1 0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+
+}
+
+.navigation-bar  h1{
+    text-align: left;
+    flex: 3 3 0;
+    padding: 8px;
+    font-size: 32px;
+
+}
+
+.navigation-bar a:hover{
+    color: #4a5682;
+}
+
+
+.presentation{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 100px;
+}
+
+.flex-container{
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.flex-item{
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+img{
+    width: 175px;
+    height: 125px;
+}
+
+.wrapper{
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.magic-button{
+    text-decoration: none;
+    font-size: 26px;
+    background-color: #e6e9ef;
+    padding: 12px;
+    color: black;
+}
+
+.magic-button:hover{
+    background-color: #717b8c;
+}

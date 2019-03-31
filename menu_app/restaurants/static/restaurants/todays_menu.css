@@ -1,0 +1,99 @@
+body{
+    font-family: "Trebuchet MS","Helvetica","Arial","sans-serif";
+}
+
+.navigation-bar{
+    background-color: #e6e9ef;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation-bar a{
+    flex-grow: 1 1 0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+
+}
+
+.navigation-bar  h1{
+    text-align: left;
+    flex: 3 3 0;
+    padding: 8px;
+    font-size: 32px;
+
+}
+
+.navigation-bar a:hover{
+    color: #4a5682;
+}
+
+.big-container{
+    display:flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.todays_menu{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.restaurant-presentation{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h5{
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+img{
+    width: 175px;
+    height: 125px;
+}
+
+.wrapper {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.magic-button{
+    text-decoration: none;
+    font-size: 26px;
+    background-color: #e6e9ef;
+    padding: 12px;
+    color: black;
+    margin-top: 12px;
+    /*margin-bottom: 12px;*/
+}
+
+.magic-button:hover{
+    background-color: #717b8c;
+}
+
+h1{
+    margin-left: 32px;
+}
+
+h3{
+    font-size: 24px;
+}
