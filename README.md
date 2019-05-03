@@ -1,2 +1,2 @@
 # eat-today-bucharest
-A web app that centralizes menus of different restaurants.
+A dockerized web app that centralizes menus of different restaurants, using Django and MySQL stored procedures.
